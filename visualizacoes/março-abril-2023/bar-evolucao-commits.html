@@ -1,0 +1,111 @@
+<!--
+	THIS EXAMPLE WAS DOWNLOADED FROM https://echarts.apache.org/examples/en/editor.html?c=mix-line-bar&code=PYBwLglsB2AEC8sDeAoW7aTAGwKYC5k0MxRCBGABgBpj08AzMQgcgGNdoxcAnF2jJlwAPZrBYBRAG7BsAVwDnAY-CwAJrlhtgAWx0QwAZ1jRVAcQMALOQCN-xAL4DMwWZBCFUgsDwgBzP15WAENhCEN7QVDwgAVgCC4gokF0MABPEAJxNh5gQwjnQRy8wwBldLxPOhTtbGAeVgBiDgBOG1xyBgYWavQHav6-51JZG2BhKsEGXGCwOR4srxS1WeCANQhcAHdPWENLYB3MHjlcalgF4LUAeWhsNMIGYOxDTSde2B1gvwg2ABUMos9gcjj5Tud0plCABtFjYBK4fjiGzBPgAXVg7xSF1whlIC12-0OhDBb0KGEMwSkuAAgoYAJJfQKEkEkk5vAaOZzCGlhQww6pLbyA1hsWa4Pz1NKRZarGEsABMADYALSUADMKoVlAV6v4LB1aoALFqdXrzgaWsbTbqkSxyKrKCbtbaLbrrS69WjyehooY4gluA1ktjMCLxPsrocetjBhg497iGleeEBYIhSRwywpM9TjLBNBgjosiwAMK6fRGfMYfTQQg0D5fCawADslAb2MDvBz2EIAFYOyk_QAZYLtXsh7EMepfMBB1hIHunBwxlJxobERPoV6-XFpjAZ9C1epNAAcNko5BsXW6PpMRZL5b0BgKH0hJZRfDvI2w7kmoaXXAADEZ1medYAYORoDYSAYFgAAKQCAEpJ1DBY5h4OBAIAbg-PoPixWUwGCfcUioU9znVJ1ziNI0aFgPtaPORjTw-NEBmcdiHGwoA
+	⚠ Please be aware that this chart is not an official demo of Apache ECharts but is made by user-generated code.
+-->
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+  <meta charset="utf-8">
+</head>
+<body style="height: 100%; margin: 0">
+  <div id="container" style="height: 100%"></div>
+
+  
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+  <!-- Uncomment this line if you want to dataTool extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/extension/dataTool.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use gl extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-gl@2/dist/echarts-gl.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to echarts-stat extension
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts-stat@latest/dist/ecStat.min.js"></script>
+  -->
+  <!-- Uncomment this line if you want to use map
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/china.js"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@4.9.0/map/js/world.js"></script>
+  -->
+  <!-- Uncomment these two lines if you want to use bmap extension
+  <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=YOUR_API_KEY"></script>
+  <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/extension/bmap.min.js"></script>
+  -->
+
+  <script type="text/javascript">
+    var dom = document.getElementById('container');
+    var myChart = echarts.init(dom, null, {
+      renderer: 'canvas',
+      useDirtyRect: false
+    });
+    var app = {};
+    
+    var option;
+
+    option = {
+    title: {
+    top: 10,
+    left: 'center',
+    text: 'Evolução de commits no Github',
+  },
+  tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'cross',
+      crossStyle: {
+        color: '#ce9be1ff'
+      }
+    }
+  },
+  toolbox: {
+    feature: {
+      dataView: { show: true, readOnly: false },
+      magicType: { show: true, type: ['line', 'bar'] },
+      restore: { show: true },
+      saveAsImage: { show: true }
+    }
+  },
+  xAxis: [
+    {
+      type: 'category',
+      data: ['26-03-2023','02-04-2023', '09-04-2023', '16-04-2023', '23-04-2023'],
+      axisPointer: {
+        type: 'shadow'
+      }
+    }
+  ],
+  yAxis: [
+    {
+      type: 'value',
+      name: 'Commits',
+      min: 0,
+      max: 700,
+      interval: 50,
+      axisLabel: {
+        formatter: '{value}'
+      }
+    },
+  ],
+  series: [
+    {
+      color: '#8b01bfff',
+      name: 'Commits',
+      type: 'bar',
+      tooltip: {
+        valueFormatter: function (value) {
+          return value;
+        }
+      },
+      data: [
+       108, 304, 440, 544, 548
+      ]
+    },
+  ]
+};
+
+    if (option && typeof option === 'object') {
+      myChart.setOption(option);
+    }
+
+    window.addEventListener('resize', myChart.resize);
+  </script>
+</body>
+</html>
