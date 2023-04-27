@@ -1,0 +1,6 @@
+{
+  "description": "Apache ECharts Demo",
+  "keywords": [],
+  "main": "index.html",
+  "name": "bar-commits-por-semana"
+}
